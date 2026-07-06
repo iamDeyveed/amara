@@ -3,7 +3,7 @@ import { ExpertiseCard } from "@/components/ExpertiseCard";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { StaggerGroup, StaggerItem } from "@/components/Stagger";
-import { caseStudyCategories, expertiseGroups, projects } from "@/lib/data";
+import { caseStudyCategories, contact, expertiseGroups, projects } from "@/lib/data";
 
 export const metadata = {
   title: "My Work | Big_Hub"
@@ -44,7 +44,11 @@ export default function WorkPage() {
       </StaggerGroup>
 
       <div className="mt-16 text-center">
-        <Button href="/about" variant="gold" className="rounded-lg px-8 py-4">
+        <Button
+          href={`mailto:${contact.email}?subject=Let%27s%20collaborate`}
+          variant="gold"
+          className="rounded-lg px-8 py-4"
+        >
           Let&apos;s collaborate
         </Button>
       </div>

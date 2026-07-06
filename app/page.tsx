@@ -5,7 +5,7 @@ import { Button } from "@/components/Button";
 import { HoverImagePreview } from "@/components/HoverImagePreview";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { StaggerGroup, StaggerItem } from "@/components/Stagger";
-import { previewTiles, processSteps, quote, socialLinks, valueCards } from "@/lib/data";
+import { contact, previewTiles, processSteps, quote, socialLinks, valueCards } from "@/lib/data";
 
 export default function HomePage() {
   return (
@@ -160,7 +160,11 @@ export default function HomePage() {
         </blockquote>
 
         <div className="mt-8 text-center">
-          <Button href="/work" variant="gold" className="rounded-lg px-8 py-4">
+          <Button
+            href={`mailto:${contact.email}?subject=Let%27s%20Make%20%245M%20Together`}
+            variant="gold"
+            className="rounded-lg px-8 py-4"
+          >
             Let&apos;s Make $5M Together
           </Button>
         </div>
