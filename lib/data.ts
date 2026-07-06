@@ -46,6 +46,7 @@ export type Project = {
   className: string;
   symbol: string;
   image?: string;
+  flipText: string;
 };
 
 export const navItems: NavItem[] = [
@@ -190,7 +191,9 @@ export const projects: Project[] = [
     type: "Web Design",
     className: "from-[#e8531d] to-[#8a2a0d] text-white",
     symbol: "Nx",
-    image: "/images/nexera-preview.png"
+    image: "/images/nexera-preview.png",
+    flipText:
+      "Dummy case study note: This ERP concept focuses on inventory clarity, operational dashboards, and faster business decisions for growing teams."
   },
   {
     title: "Plenix",
@@ -198,7 +201,9 @@ export const projects: Project[] = [
     type: "Mobile App",
     className: "from-[#eef0f6] to-[#cdd3e5] text-[#141450]",
     symbol: "Px",
-    image: "/images/plenix-preview.png"
+    image: "/images/plenix-preview.png",
+    flipText:
+      "Dummy case study note: This fintech product explores simple money tracking, savings visibility, and a confident mobile banking experience."
   },
   {
     title: "AGRIXA",
@@ -206,7 +211,9 @@ export const projects: Project[] = [
     type: "Website & Mobile App",
     className: "from-[#6a8a4e] to-[#1a2414] text-white",
     symbol: "Ag",
-    image: "/images/agrixa-preview.png"
+    image: "/images/agrixa-preview.png",
+    flipText:
+      "Dummy case study note: This agrotech platform connects farmers, buyers, and logistics providers through a cleaner product discovery flow."
   },
   {
     title: "NavEase",
@@ -214,7 +221,9 @@ export const projects: Project[] = [
     type: "Mobile App",
     className: "from-[#28374d] to-[#111923] text-[#dbe4f0]",
     symbol: "Ne",
-    image: "/images/case-study-mockup-preview.png"
+    image: "/images/case-study-mockup-preview.png",
+    flipText:
+      "Dummy case study note: This transport concept supports local navigation with route guidance, ride context, and accessible commuter flows."
   },
   {
     title: "Shop with me",
@@ -222,7 +231,9 @@ export const projects: Project[] = [
     type: "Mobile App",
     className: "from-[#eecb1c] to-[#b89210] text-[#3a2c00]",
     symbol: "Sw",
-    image: "/images/shop-with-me-preview.png"
+    image: "/images/shop-with-me-preview.png",
+    flipText:
+      "Dummy case study note: This ecommerce experience is designed around faster browsing, clearer product choices, and smoother shopping moments."
   },
   {
     title: "Abiz Kitchen",
@@ -230,7 +241,9 @@ export const projects: Project[] = [
     type: "Brand Design",
     className: "from-[#f0e9e0] to-[#d5c4b5] text-[#5c1e2b]",
     symbol: "Ak",
-    image: "/images/abiz-kitchen-preview.png"
+    image: "/images/abiz-kitchen-preview.png",
+    flipText:
+      "Dummy case study note: This brand identity explores a warm kitchen personality, simple visual rules, and flexible assets for food storytelling."
   }
 ];
 
