@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big_Hub — Amarachi Mbanta | Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@400..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Mrs+Saint+Delafield&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070706;
+    --bg-elev:#121110;
+    --card:#17140f;
+    --card-border:#2a2620;
+    --gold:#d79b1f;
+    --gold-light:#eec565;
+    --gold-dim:#8a641b;
+    --text:#f3efe6;
+    --text-muted:#a89f8f;
+    --text-faint:#6e6555;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Instrument Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+
+  .script{ font-family:'Mrs Saint Delafield', cursive; }
+  .display{ font-family:'Bitcount Single','Poppins',sans-serif; font-weight:800; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:200;
+    background:rgba(7,7,6,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--card-border);
+  }
+  .header-inner{
+    max-width:var(--maxw); margin:0 auto; padding:18px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo-mark{
+    width:30px; height:30px; border-radius:7px;
+    background:linear-gradient(145deg,var(--gold-light),var(--gold-dim));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:13px; color:#1a1408;
+  }
+  .logo-text{ font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--gold); letter-spacing:0.2px;}
+  .logo-sub{ display:flex; align-items:center; gap:10px; margin-left:6px;}
+  .logo-sub .handle{ font-family:'Mrs Saint Delafield', cursive; font-size:19px; color:var(--text-muted);}
+  .logo-sub .divider{ width:26px; height:1px; background:var(--text-faint);}
+  .logo-sub .role{ font-family:'Poppins',serif; font-size:13px; color:var(--text-muted); letter-spacing:0.3px;}
+
+  nav.desktop-nav{ display:flex; gap:34px; }
+  nav.desktop-nav a{
+    font-size:15px; color:var(--text); position:relative; padding:4px 0; cursor:pointer;
+    transition:color .2s;
+  }
+  nav.desktop-nav a:hover{ color:var(--gold-light); }
+  nav.desktop-nav a.active{ color:var(--gold); }
+  nav.desktop-nav a.active::after{
+    content:''; position:absolute; left:0; bottom:-4px; width:100%; height:2px; background:var(--gold);
+    border-radius:2px;
+  }
+
+  .burger{
+    display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;
+  }
+  .burger span{ width:24px; height:2px; background:var(--text); border-radius:2px; }
+
+  /* mobile menu overlay */
+  .mobile-menu{
+    position:fixed; inset:0; background:var(--gold);
+    z-index:300; display:flex; flex-direction:column;
+    padding:28px 22px;
+    transform:translateX(100%);
+    transition:transform .35s ease;
+  }
+  .mobile-menu.open{ transform:translateX(0); }
+  .mobile-menu .close-btn{
+    align-self:flex-end; background:none; border:none; font-size:26px; color:#1a1408; cursor:pointer; margin-bottom:24px;
+  }
+  .mobile-menu a{
+    background:rgba(0,0,0,0.14);
+    color:#241b06; font-weight:600; font-size:17px;
+    padding:18px 20px; border-radius:12px; margin-bottom:14px;
+  }
+  .mobile-menu a.active{ background:rgba(0,0,0,0.28); }
+
+  @media (max-width:860px){
+    nav.desktop-nav{ display:none; }
+    .burger{ display:flex; }
+    .logo-sub{ display:none; }
+  }
+
+  /* ===== Sections base ===== */
+  section{ padding:90px 0; }
+  .page{ display:none; }
+  .page.active{ display:block; animation:fadein .4s ease; }
+  @keyframes fadein{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  .eyebrow-script{ font-family:'Mrs Saint Delafield', cursive; font-size:28px; color:var(--gold-light); }
+  .section-title{ font-family:'Poppins',sans-serif; font-weight:700; font-size:30px; margin-bottom:34px; }
+
+  /* ===== HERO ===== */
+  .hero{ padding-top:70px; padding-bottom:60px; }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;
+  }
+  .hero-headline{ font-size:22px; font-family:'Mrs Saint Delafield',cursive; color:var(--text-muted); margin-bottom:6px;}
+  .hero h1{
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:56px; line-height:1.05;
+    color:var(--gold); margin-bottom:18px;
+  }
+  .hero p.desc{ color:var(--text-muted); font-size:17px; max-width:420px; margin-bottom:28px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:transparent; border:1.5px solid var(--text); color:var(--text);
+    padding:13px 24px; border-radius:30px; font-size:15px; font-weight:500; cursor:pointer;
+    transition:all .25s;
+  }
+  .btn:hover{ background:var(--text); color:#111; }
+  .btn-gold{
+    background:var(--gold); color:#241b06; border:none; font-weight:700; padding:16px 30px; border-radius:8px;
+  }
+  .btn-gold:hover{ background:var(--gold-light); }
+
+  .hero-portrait{
+    position:relative; border-radius:20px; overflow:hidden;
+    background:linear-gradient(160deg,#3a2e18,#0d0b07 65%);
+    aspect-ratio:4/5; display:flex; align-items:flex-end; justify-content:center;
+  }
+  .hero-portrait svg{ width:78%; }
+  .hero-name{
+    position:absolute; bottom:14px; right:18px;
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--gold);
+    text-align:right; line-height:1.15;
+  }
+  .social-row{ display:flex; gap:14px; margin-top:26px; }
+  .social-row a{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--card-border);
+    display:flex; align-items:center; justify-content:center; font-size:14px; color:var(--text-muted);
+    transition:.2s;
+  }
+  .social-row a:hover{ border-color:var(--gold); color:var(--gold); }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero h1{ font-size:40px; }
+    .hero-portrait{ aspect-ratio:3/2; order:-1; }
+  }
+
+  /* Big question */
+  .big-question{ text-align:center; margin-top:20px; }
+  .big-question .q1{ font-size:24px; color:var(--text-muted); }
+  .big-question .q2{ font-size:34px; color:var(--gold-light); margin-top:4px; }
+
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px;
+  }
+  .gallery-item{
+    border-radius:14px; overflow:hidden; aspect-ratio:4/3; position:relative;
+    display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif;
+  }
+  @media (max-width:860px){ .gallery-grid{ grid-template-columns:1fr; } }
+
+  .gi-nexera{ background:linear-gradient(135deg,#e8531d,#8a2a0d); }
+  .gi-plenix{ background:linear-gradient(135deg,#0f1030,#1c1f4f); }
+  .gi-shop{ background:linear-gradient(135deg,#e8c419,#b89210); }
+  .gi-agrixa{ background:linear-gradient(135deg,#5a7a3e,#141a10); }
+  .gi-brand{ background:#f0e9e0; }
+  .gi-mock{ background:linear-gradient(135deg,#dcdcdc,#8f8f8f); }
+
+  .gi-label{ position:absolute; bottom:14px; left:16px; color:#fff; font-weight:700; font-size:15px; text-shadow:0 2px 6px rgba(0,0,0,0.4); }
+  .gi-brand .gi-label, .gi-mock .gi-label{ color:#1a1a1a; text-shadow:none; }
+
+  /* Process */
+  .process-strip{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; opacity:0.9;
+  }
+  .process-strip div{
+    background:var(--card); border:1px solid var(--card-border); border-radius:14px; height:130px;
+    display:flex; align-items:center; justify-content:center; color:var(--text-faint); font-size:14px;
+  }
+  @media(max-width:860px){ .process-strip{ grid-template-columns:1fr; } }
+
+  /* bring to table */
+  .table-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:34px;
+  }
+  @media(max-width:960px){ .table-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:520px){ .table-grid{ grid-template-columns:1fr; } }
+  .table-card{
+    background:#241f3d; border-radius:16px; padding:30px 20px; text-align:center;
+  }
+  .table-card .icon{ font-size:44px; margin-bottom:14px; }
+  .table-card p{ font-weight:600; font-size:15px; }
+
+  .quote-block{
+    text-align:center; margin:70px auto 0; max-width:700px;
+  }
+  .quote-block p{
+    font-family:'Mrs Saint Delafield', cursive; font-size:26px; color:var(--gold-light); line-height:1.4;
+  }
+  .cta-center{ text-align:center; margin-top:34px; }
+
+  /* footer */
+  footer{ border-top:1px solid var(--card-border); padding:60px 0 30px; margin-top:60px; }
+  .footer-top{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;
+  }
+  .footer-brand .logo-text{ font-size:20px; }
+  .footer-brand p{ color:var(--text-muted); font-size:14px; max-width:280px; margin-top:12px; }
+  .footer-social{ display:flex; gap:12px; margin-top:18px; }
+  .footer-social a{
+    width:32px; height:32px; border-radius:50%; background:var(--card); border:1px solid var(--card-border);
+    display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--text-muted);
+  }
+  .footer-col h4{ font-size:15px; margin-bottom:14px; color:var(--text); }
+  .footer-col a, .footer-col p{ display:block; color:var(--text-muted); font-size:14px; margin-bottom:8px; }
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center; margin-top:50px; padding-top:20px;
+    border-top:1px solid var(--card-border); color:var(--text-faint); font-size:13px;
+  }
+  .back-top{ display:flex; align-items:center; gap:6px; color:var(--text-muted); cursor:pointer; }
+  .giant-logo{
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:min(14vw,180px); color:var(--gold);
+    opacity:0.06; text-align:center; margin-top:40px; white-space:nowrap; overflow:hidden;
+  }
+
+  /* ===== My Work page ===== */
+  .expertise-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:30px;
+  }
+  @media(max-width:960px){ .expertise-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:600px){ .expertise-grid{ grid-template-columns:1fr; } }
+  .expertise-card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:16px; padding:24px;
+  }
+  .expertise-card li{ font-size:14px; color:var(--text-muted); margin-bottom:10px; padding-left:14px; position:relative; }
+  .expertise-card li::before{ content:'•'; position:absolute; left:0; color:var(--gold); }
+
+  .cs-intro{ margin-top:60px; }
+  .cs-intro h3{ font-family:'Poppins',sans-serif; font-size:26px; margin-bottom:14px; }
+  .cs-intro li{ color:var(--text-muted); font-size:15px; margin-bottom:6px; padding-left:14px; position:relative;}
+  .cs-intro li::before{ content:'•'; position:absolute; left:0; color:var(--gold); }
+
+  .case-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px;
+  }
+  @media(max-width:900px){ .case-grid{ grid-template-columns:1fr; } }
+  .case-card{
+    background:var(--card); border:1px solid var(--card-border); border-radius:16px; overflow:hidden;
+    cursor:pointer; transition:transform .25s, border-color .25s;
+  }
+  .case-card:hover{ transform:translateY(-4px); border-color:var(--gold-dim); }
+  .case-thumb{
+    aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:19px;
+  }
+  .case-thumb small{ font-family:'Instrument Sans',sans-serif; font-weight:400; font-size:13px; opacity:0.85; }
+  .case-caption{ padding:16px 18px; font-weight:700; font-size:15px; text-align:center; }
+
+  .ct-nexera{ background:linear-gradient(135deg,#e8531d,#8a2a0d); color:#fff; }
+  .ct-plenix{ background:#eef0f6; color:#141450; }
+  .ct-agrixa{ background:linear-gradient(135deg,#6a8a4e,#1a2414); color:#fff; }
+  .ct-navease{ background:#28374d; color:#dbe4f0; }
+  .ct-shop{ background:#eecb1c; color:#3a2c00; }
+  .ct-abiz{ background:#f0e9e0; color:#5c1e2b; }
+
+  .collab-cta{ text-align:center; margin-top:60px; }
+
+  /* ===== About page ===== */
+  .about-block{ max-width:780px; margin:0 auto; }
+  .about-block + .about-block{ margin-top:60px; }
+  .about-block p{ color:var(--text-muted); font-size:16px; }
+  .about-heading{ font-family:'Mrs Saint Delafield',cursive; font-size:40px; color:var(--gold-light); margin-bottom:22px; }
+  .journey-heading{ display:flex; align-items:center; gap:8px; font-family:'Mrs Saint Delafield',cursive; font-size:38px; color:var(--gold-light); margin-bottom:22px; }
+  .note-desk{ text-align:center; margin-top:70px; color:var(--gold); font-weight:700; font-size:14px; letter-spacing:0.4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">H8</div>
+      <span class="logo-text">Big_Hub</span>
+      <div class="logo-sub">
+        <span class="handle">Blackigbogal_Hub</span>
+        <span class="divider"></span>
+        <span class="role">Product Designer</span>
+      </div>
+    </div>
+    <nav class="desktop-nav">
+      <a data-page="home" class="active">Home</a>
+      <a data-page="work">My work</a>
+      <a data-page="about">About me</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenuBtn">×</button>
+  <a data-page="home" class="active">Home</a>
+  <a data-page="work">My work</a>
+  <a data-page="about">About Me</a>
+</div>
+
+<!-- ============ HOME PAGE ============ -->
+<main>
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-headline">I craft digital experiences that sit at</div>
+          <h1>Product<br>Designer</h1>
+          <p class="desc">I craft digital experiences that sit at the intersection of form and functionality.</p>
+          <button class="btn" onclick="goPage('work')">View my work &nbsp;→</button>
+          <div class="social-row">
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="X">𝕏</a>
+            <a href="#" title="Instagram">◎</a>
+            <a href="#" title="TikTok">♪</a>
+            <a href="#" title="Facebook">f</a>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="100" cy="70" rx="42" ry="48" fill="#e8c9a0"/>
+            <path d="M40 230 C40 160 70 130 100 130 C130 130 160 160 160 230 Z" fill="#2c241a"/>
+            <path d="M60 210 C65 175 78 150 100 150 C122 150 135 175 140 210 L140 230 L60 230 Z" fill="#f4f1ea"/>
+            <path d="M85 205 L115 205 L110 230 L90 230 Z" fill="#3a2418"/>
+          </svg>
+          <div class="hero-name">Amarachi<br>Mbanta</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="big-question">
+        <div class="q1 script">The big question is?</div>
+        <div class="q2 script">What kind of designer are you</div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item gi-nexera"><span class="gi-label">Nexera — ERP System</span></div>
+        <div class="gallery-item gi-plenix"><span class="gi-label">Plenix — Fintech</span></div>
+        <div class="gallery-item gi-shop"><span class="gi-label">Shop With Me</span></div>
+        <div class="gallery-item gi-agrixa"><span class="gi-label">AGRIXA — Agrotech</span></div>
+        <div class="gallery-item gi-brand"><span class="gi-label">ABIZ Kitchen — Brand</span></div>
+        <div class="gallery-item gi-mock"><span class="gi-label">Case Study Mockup</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;">My Process</h2>
+      <div class="process-strip">
+        <div>Research &amp; Discovery</div>
+        <div>Define &amp; Ideate</div>
+        <div>Design, Test &amp; Ship</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title" style="text-align:center;">What I bring to the table</h2>
+      <div class="table-grid">
+        <div class="table-card"><div class="icon">🧩</div><p>Problem Solving</p></div>
+        <div class="table-card"><div class="icon">🤝</div><p>Team Work</p></div>
+        <div class="table-card"><div class="icon">🎯</div><p>Intentional Design</p></div>
+        <div class="table-card"><div class="icon">🌻</div><p>Growth Mindset</p></div>
+      </div>
+      <div class="quote-block">
+        <p>Blending design thinking, emerging technologies, and AI-assisted workflows to create products that move faster and work smarter.</p>
+      </div>
+      <div class="cta-center">
+        <button class="btn btn-gold" onclick="goPage('work')">Let's Make $5M Together</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo"><div class="logo-mark">H8</div><span class="logo-text">Big_Hub</span></div>
+          <p>I'm currently open to product design opportunities and collaborations.</p>
+          <div class="footer-social">
+            <a href="#">in</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">♪</a><a href="#">f</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a data-page="home">Home</a>
+          <a data-page="work">My Work</a>
+          <a data-page="about">About</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact me</h4>
+          <p>Email:<br>Mbantaamarachi@gmail.com</p>
+          <p>WhatsApp:<br>+2348140407243</p>
+          <a href="#">Service</a>
+          <a href="#">Testimonials</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Big_Hub.</span>
+        <span class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</span>
+      </div>
+      <div class="giant-logo">Big_Hub</div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ============ MY WORK PAGE ============ -->
+<div class="page" id="page-work">
+  <section style="padding-top:50px;">
+    <div class="wrap">
+      <h2 class="section-title">My Expertise</h2>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <ul>
+            <li>User Research</li><li>User Flow</li><li>Competitive Analysis</li>
+            <li>Information Architecture</li><li>Journey Mapping</li><li>Problem Framing</li>
+            <li>Product Strategy</li><li>Design Thinking</li><li>Data-Informed Decision Making</li>
+          </ul>
+        </div>
+        <div class="expertise-card">
+          <ul>
+            <li>User Experience Design</li><li>User Interface Design</li><li>Interaction Design</li>
+            <li>Visual Design</li><li>Mobile App Design</li><li>Responsive Web Design</li>
+            <li>Wireframing</li><li>Prototyping</li><li>Design Systems</li><li>Accessibility Design</li><li>Usability Testing</li>
+          </ul>
+        </div>
+        <div class="expertise-card">
+          <ul>
+            <li>AI-Assisted Research</li><li>AI-Powered Ideation</li><li>AI for Design Implementation</li>
+            <li>Prompt Engineering</li><li>AI Workflow Optimization</li><li>Basics of HTML &amp; CSS</li>
+            <li>Developer Handoff</li><li>Design-to-Code Communication</li>
+          </ul>
+        </div>
+        <div class="expertise-card">
+          <ul>
+            <li>Interpersonal Skills</li><li>Communication Skills</li><li>Design Presentation</li>
+            <li>Workshop Facilitation</li><li>Team Collaboration</li><li>Feedback Management</li><li>Documentation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-intro">
+        <h3>Here is about six case studies you can review.</h3>
+        <ul>
+          <li>Web app (1)</li>
+          <li>Website (1)</li>
+          <li>Mobile app (3)</li>
+          <li>Brand design (1)</li>
+        </ul>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-thumb ct-nexera"><span>⚙ Nexera</span><small>— ERP System</small></div>
+          <div class="case-caption">Web Design</div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb ct-plenix"><span>⇡ Plenix</span><small>— Fintech</small></div>
+          <div class="case-caption">Mobile App</div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb ct-agrixa"><span>🌾 AGRIXA</span><small>— Agrotech</small></div>
+          <div class="case-caption">Website &amp; Mobile App</div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb ct-navease"><span>✳ NavEase</span><small>— Transport-tech</small></div>
+          <div class="case-caption">Mobile App</div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb ct-shop"><span>🛍 Shop with me</span><small>— Ecommerce</small></div>
+          <div class="case-caption">Mobile App</div>
+        </div>
+        <div class="case-card">
+          <div class="case-thumb ct-abiz"><span>🍴 Abiz Kitchen</span></div>
+          <div class="case-caption">Brand Design</div>
+        </div>
+      </div>
+
+      <div class="collab-cta">
+        <button class="btn btn-gold" onclick="goPage('about')">Let's collaborate</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT PAGE ============ -->
+<div class="page" id="page-about">
+  <section style="padding-top:50px;">
+    <div class="wrap">
+      <div class="about-block">
+        <div class="about-heading">My experience!</div>
+        <p>I've always been drawn to creating things that are both meaningful and useful. For me, design goes beyond making something look good, it's about understanding people, solving problems, and shaping experiences that make life a little easier. I enjoy collaborating with others, exploring ideas from different perspectives, and turning insights into solutions that deliver real value. My approach to product design is grounded in curiosity, research, and thoughtful decision-making.</p>
+        <p style="margin-top:16px;">Through collaborations and hands-on projects, I've learned that the best products are built by listening closely to users, asking the right questions, and designing with intention. One experience that shaped my thinking involved researching a navigation-focused product designed to help commuters find their way more easily. Conducting interviews and gathering feedback directly from users deepened my understanding of human behavior and reinforced the importance of designing around real needs rather than assumptions.</p>
+      </div>
+
+      <div class="about-block">
+        <div class="journey-heading">❤ My Journey 🌺🌸</div>
+        <p>Looking back, product design feels like a natural continuation of a journey that started long before I knew the term existed. As a child, I loved drawing and spent much of my time exploring art and creativity. In secondary school, I pursued the arts, and later developed skills in catering, where I discovered the creative process behind designing cakes. I also worked in event decoration, learning how colors, structure, and details come together to create memorable experiences.</p>
+        <p style="margin-top:16px;">While studying History and International Studies at university, I developed a strong foundation in research, critical thinking, and understanding people through the lens of culture, events, and human behavior. Alongside my academic journey, I earned a diploma in product design, eventually choosing to dedicate myself fully to the craft. Today, my work sits at the intersection of creativity, research, and problem-solving, a combination of experiences that continue to shape how I think, design, and build.</p>
+      </div>
+
+      <div class="note-desk">A NOTE FROM MY DESK</div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<script>
+  const pages = ['home','work','about'];
+  function goPage(name){
+    pages.forEach(p=>{
+      document.getElementById('page-'+p).classList.toggle('active', p===name);
+    });
+    document.querySelectorAll('[data-page]').forEach(el=>{
+      el.classList.toggle('active', el.dataset.page===name);
+    });
+    closeMenu();
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+  document.querySelectorAll('[data-page]').forEach(el=>{
+    el.addEventListener('click', ()=> goPage(el.dataset.page));
+  });
+
+  const mobileMenu = document.getElementById('mobileMenu');
+  document.getElementById('burgerBtn').addEventListener('click', ()=> mobileMenu.classList.add('open'));
+  document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
+  function closeMenu(){ mobileMenu.classList.remove('open'); }
+</script>
+
+</body>
+</html>
