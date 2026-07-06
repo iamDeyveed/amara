@@ -123,15 +123,18 @@ export default function HomePage() {
 
       <SectionWrapper>
         <h2 className="section-title text-center">My Process</h2>
-        <StaggerGroup className="mt-9 grid gap-6 md:grid-cols-3">
-          {processSteps.map((step) => (
-            <StaggerItem key={step.title}>
-              <article className="flex h-[130px] items-center justify-center rounded-[14px] border border-hub-border bg-hub-card px-6 text-center text-sm text-hub-faint transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-hub-goldDim hover:text-hub-muted hover:shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+        <div className="process-marquee mt-9 overflow-hidden">
+          <div className="process-marquee-track flex w-max gap-6">
+            {[...processSteps, ...processSteps].map((step, index) => (
+              <article
+                key={`${step.title}-${index}`}
+                className="flex h-[130px] w-[min(78vw,360px)] shrink-0 items-center justify-center rounded-[14px] border border-hub-border bg-hub-card px-6 text-center text-sm text-hub-faint transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-hub-goldDim hover:text-hub-muted hover:shadow-[0_20px_60px_rgba(0,0,0,0.25)] md:w-[360px]"
+              >
                 {step.title}
               </article>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
+            ))}
+          </div>
+        </div>
       </SectionWrapper>
 
       <SectionWrapper>

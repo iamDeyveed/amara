@@ -50,6 +50,16 @@ a {
   }
 }
 
+@keyframes process-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
 @layer components {
   .section-title {
     @apply font-poppins text-[30px] font-bold leading-tight text-hub-text;
@@ -71,6 +81,18 @@ a {
 
   .animate-gold-breathe {
     animation: gold-breathe 5.8s var(--ease-out-quint) infinite;
+  }
+
+  .process-marquee {
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .process-marquee-track {
+    animation: process-marquee 18s linear infinite;
+  }
+
+  .process-marquee:hover .process-marquee-track {
+    animation-play-state: paused;
   }
 }
 
