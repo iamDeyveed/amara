@@ -8,6 +8,7 @@ import {
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { CursorFollower } from "@/components/CursorFollower";
 import { PageTransition } from "@/components/PageTransition";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
@@ -56,6 +57,7 @@ export default function RootLayout({
         id="top"
         className={`${instrumentSans.variable} ${poppins.variable} ${script.variable} ${bitcount.variable} font-sans antialiased`}
       >
+        <CursorFollower />
         <ScrollProgress />
         <Header />
         <PageTransition>{children}</PageTransition>
