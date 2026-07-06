@@ -81,9 +81,24 @@ export const previewTiles: PreviewTile[] = [
     className: "from-[#e8c419] to-[#b89210]",
     image: "/images/shop-with-me-preview.png"
   },
-  { name: "AGRIXA", meta: "Agrotech", className: "from-[#5a7a3e] to-[#141a10]" },
-  { name: "ABIZ Kitchen", meta: "Brand", className: "from-[#f0e9e0] to-[#d7cabd]" },
-  { name: "Case Study Mockup", meta: "Presentation", className: "from-[#dcdcdc] to-[#8f8f8f]" }
+  {
+    name: "AGRIXA",
+    meta: "Agrotech",
+    className: "from-[#5a7a3e] to-[#141a10]",
+    image: "/images/agrixa-preview.png"
+  },
+  {
+    name: "ABIZ Kitchen",
+    meta: "Brand",
+    className: "from-[#f0e9e0] to-[#d7cabd]",
+    image: "/images/abiz-kitchen-preview.png"
+  },
+  {
+    name: "Case Study Mockup",
+    meta: "Presentation",
+    className: "from-[#dcdcdc] to-[#8f8f8f]",
+    image: "/images/case-study-mockup-preview.png"
+  }
 ];
 
 export const processSteps: ProcessStep[] = [
