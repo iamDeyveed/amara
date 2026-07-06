@@ -2,7 +2,6 @@
 
 import type { Project } from "@/lib/data";
 import Image from "next/image";
-import { RotateCcw } from "lucide-react";
 import { useState } from "react";
 
 type ProjectCardProps = {
@@ -79,7 +78,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="absolute inset-0 rounded-2xl border border-hub-goldDim bg-hub-card p-6 text-left shadow-[0_28px_80px_rgba(0,0,0,0.34)] [backface-visibility:hidden] [transform:rotateY(180deg)]">
-          <div className="flex h-full min-h-[calc((100vw-48px)*0.625+56px)] flex-col justify-between sm:min-h-[306px]">
+          <div className="flex h-full min-h-[calc((100vw-48px)*0.625+56px)] flex-col justify-center sm:min-h-[306px]">
             <div>
               <span className="mb-4 inline-flex rounded-full border border-hub-gold/30 bg-hub-gold/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-hub-goldLight">
                 Case note
@@ -87,10 +86,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <h3 className="font-poppins text-2xl font-extrabold text-hub-gold">{project.title}</h3>
               <p className="mt-2 text-sm font-semibold text-hub-text">{project.type}</p>
               <p className="mt-5 text-sm leading-relaxed text-hub-muted">{project.flipText}</p>
-            </div>
-            <div className="mt-6 flex items-center justify-between border-t border-hub-border pt-4 text-xs text-hub-faint">
-              <span>Click again to return</span>
-              <RotateCcw size={16} className="text-hub-gold" />
             </div>
           </div>
         </div>
