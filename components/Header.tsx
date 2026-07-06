@@ -34,14 +34,16 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative py-1 text-[15px] transition-colors ${
+                className={`group relative py-1 text-[15px] transition-colors duration-300 ${
                   active ? "text-hub-gold" : "text-hub-text hover:text-hub-goldLight"
                 }`}
               >
                 {item.label}
                 {active ? (
                   <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-hub-gold" />
-                ) : null}
+                ) : (
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-hub-goldLight transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
+                )}
               </Link>
             );
           })}
@@ -49,7 +51,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-hub-border text-hub-text transition hover:border-hub-gold hover:text-hub-gold md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-hub-border text-hub-text transition duration-300 hover:scale-105 hover:border-hub-gold hover:text-hub-gold active:scale-95 md:hidden"
           onClick={() => setIsOpen(true)}
           aria-label="Open menu"
         >

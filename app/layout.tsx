@@ -8,6 +8,8 @@ import {
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { PageTransition } from "@/components/PageTransition";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -54,8 +56,9 @@ export default function RootLayout({
         id="top"
         className={`${instrumentSans.variable} ${poppins.variable} ${script.variable} ${bitcount.variable} font-sans antialiased`}
       >
+        <ScrollProgress />
         <Header />
-        <main>{children}</main>
+        <PageTransition>{children}</PageTransition>
         <Footer />
       </body>
     </html>

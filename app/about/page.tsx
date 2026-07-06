@@ -1,4 +1,5 @@
 import { SectionWrapper } from "@/components/SectionWrapper";
+import { StaggerGroup, StaggerItem } from "@/components/Stagger";
 import { aboutExperience, aboutJourney } from "@/lib/data";
 
 export const metadata = {
@@ -13,22 +14,26 @@ export default function AboutPage() {
           <h1 id="experience-title" className="font-script text-[40px] leading-tight text-hub-goldLight">
             My experience!
           </h1>
-          <div className="mt-5 space-y-4 text-base leading-relaxed text-hub-muted">
+          <StaggerGroup className="mt-5 space-y-4 text-base leading-relaxed text-hub-muted" delay={0.12}>
             {aboutExperience.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+              <StaggerItem key={paragraph}>
+                <p>{paragraph}</p>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </section>
 
         <section className="mt-16" aria-labelledby="journey-title">
           <h2 id="journey-title" className="font-script text-[38px] leading-tight text-hub-goldLight">
             My Journey
           </h2>
-          <div className="mt-5 space-y-4 text-base leading-relaxed text-hub-muted">
+          <StaggerGroup className="mt-5 space-y-4 text-base leading-relaxed text-hub-muted" delay={0.12}>
             {aboutJourney.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+              <StaggerItem key={paragraph}>
+                <p>{paragraph}</p>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerGroup>
         </section>
 
         <p className="mt-[70px] text-center font-poppins text-sm font-bold tracking-[0.04em] text-hub-gold">

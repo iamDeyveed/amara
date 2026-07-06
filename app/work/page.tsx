@@ -2,6 +2,7 @@ import { Button } from "@/components/Button";
 import { ExpertiseCard } from "@/components/ExpertiseCard";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SectionWrapper } from "@/components/SectionWrapper";
+import { StaggerGroup, StaggerItem } from "@/components/Stagger";
 import { caseStudyCategories, expertiseGroups, projects } from "@/lib/data";
 
 export const metadata = {
@@ -12,11 +13,13 @@ export default function WorkPage() {
   return (
     <SectionWrapper className="pt-12 md:pt-[50px]">
       <h1 className="section-title">My Expertise</h1>
-      <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      <StaggerGroup className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {expertiseGroups.map((group) => (
-          <ExpertiseCard key={group.title} group={group} />
+          <StaggerItem key={group.title}>
+            <ExpertiseCard group={group} />
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerGroup>
 
       <section className="mt-16" aria-labelledby="case-studies-title">
         <h2 id="case-studies-title" className="font-poppins text-[26px] font-bold text-hub-text">
@@ -32,11 +35,13 @@ export default function WorkPage() {
         </ul>
       </section>
 
-      <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <StaggerGroup className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+          <StaggerItem key={project.title}>
+            <ProjectCard project={project} />
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerGroup>
 
       <div className="mt-16 text-center">
         <Button href="/about" variant="gold" className="rounded-lg px-8 py-4">

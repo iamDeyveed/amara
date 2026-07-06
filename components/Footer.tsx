@@ -20,7 +20,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-hub-border bg-hub-card text-xs font-semibold text-hub-muted transition hover:border-hub-gold hover:text-hub-gold"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-hub-border bg-hub-card text-xs font-semibold text-hub-muted transition duration-300 hover:-translate-y-1 hover:border-hub-gold hover:text-hub-gold"
                 >
                   {social.shortLabel}
                 </a>
@@ -35,7 +35,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-hub-muted transition hover:text-hub-gold"
+                  className="text-sm text-hub-muted transition duration-300 hover:translate-x-1 hover:text-hub-gold"
                 >
                   {item.label === "About me" ? "About" : item.label}
                 </Link>
@@ -49,21 +49,21 @@ export function Footer() {
               <p>
                 Email:
                 <br />
-                <a href={`mailto:${contact.email}`} className="transition hover:text-hub-gold">
+                <a href={`mailto:${contact.email}`} className="transition duration-300 hover:text-hub-gold">
                   {contact.email}
                 </a>
               </p>
               <p>
                 WhatsApp:
                 <br />
-                <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, "")}`} className="transition hover:text-hub-gold">
+                <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, "")}`} className="transition duration-300 hover:text-hub-gold">
                   {contact.whatsapp}
                 </a>
               </p>
-              <a href="/work" className="block transition hover:text-hub-gold">
+              <a href="/work" className="block transition duration-300 hover:translate-x-1 hover:text-hub-gold">
                 Service
               </a>
-              <a href="/about" className="block transition hover:text-hub-gold">
+              <a href="/about" className="block transition duration-300 hover:translate-x-1 hover:text-hub-gold">
                 Testimonials
               </a>
             </div>
@@ -72,7 +72,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-hub-border pt-5 text-[13px] text-hub-faint sm:flex-row sm:items-center sm:justify-between">
           <span>Copyright 2026 Big_Hub.</span>
-          <a href="#top" className="inline-flex items-center gap-1 text-hub-muted transition hover:text-hub-gold">
+          <a href="#top" className="inline-flex items-center gap-1 text-hub-muted transition duration-300 hover:-translate-y-0.5 hover:text-hub-gold">
             Back to top <ArrowUpRight size={15} />
           </a>
         </div>
