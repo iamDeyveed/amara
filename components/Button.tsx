@@ -31,6 +31,15 @@ export function Button({ children, variant = "outline", className = "", ...props
 
   if ("href" in props && props.href) {
     const { href, ...linkProps } = props;
+    const isInternalRoute = href.startsWith("/") && !href.startsWith("//");
+
+    if (!isInternalRoute) {
+      return (
+        <a href={href} className={classes} {...linkProps}>
+          {children}
+        </a>
+      );
+    }
 
     return (
       <Link href={href} className={classes} {...linkProps}>
