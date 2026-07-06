@@ -16,7 +16,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[300] flex flex-col bg-hub-gold px-5 py-7 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-[300] flex flex-col bg-[#d79b1f] px-5 py-7 text-[#070706] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
       aria-hidden={!isOpen}
@@ -24,7 +24,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <button
         type="button"
         onClick={onClose}
-        className="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-full bg-black/10 text-[#211806] transition duration-300 hover:rotate-90 hover:bg-black/20 active:scale-95"
+        className="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/25 bg-black/10 text-[#070706] transition duration-300 hover:rotate-90 hover:bg-black/20 active:scale-95"
         aria-label="Close menu"
       >
         <X size={24} strokeWidth={2.4} />
@@ -39,7 +39,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className={`rounded-xl px-5 py-[18px] font-poppins text-[17px] font-semibold text-[#241b06] transition duration-300 hover:translate-x-1 ${
+              className={`rounded-xl border border-black/20 px-5 py-[18px] font-poppins text-[17px] font-extrabold text-[#070706] shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition duration-300 hover:translate-x-1 ${
                 active ? "bg-black/25" : "bg-black/10 hover:bg-black/20"
               }`}
             >
