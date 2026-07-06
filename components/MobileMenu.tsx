@@ -3,6 +3,8 @@
 import { X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { navItems } from "@/lib/data";
 
@@ -13,10 +15,19 @@ type MobileMenuProps = {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return createPortal(
     <div
-      className={`fixed inset-0 z-[300] flex flex-col bg-[#d79b1f] px-5 py-7 text-[#070706] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-[1000] flex min-h-dvh flex-col bg-[#d79b1f] px-5 py-7 text-[#070706] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
       aria-hidden={!isOpen}
@@ -30,7 +41,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <X size={24} strokeWidth={2.4} />
       </button>
 
-      <nav className="mt-8 flex flex-col gap-3" aria-label="Mobile navigation">
+      <nav className="mt-10 flex flex-col gap-4" aria-label="Mobile navigation">
         {navItems.map((item) => {
           const active = pathname === item.href;
 
@@ -39,7 +50,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className={`rounded-xl border border-black/20 px-5 py-[18px] font-poppins text-[17px] font-extrabold text-[#070706] shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition duration-300 hover:translate-x-1 ${
+              className={`block rounded-xl border border-black/25 px-6 py-5 font-poppins text-xl font-extrabold text-[#070706] shadow-[0_12px_30px_rgba(0,0,0,0.1)] transition duration-300 hover:translate-x-1 ${
                 active ? "bg-black/25" : "bg-black/10 hover:bg-black/20"
               }`}
             >
@@ -48,6 +59,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           );
         })}
       </nav>
-    </div>
+    </div>,
+    document.body
   );
 }
