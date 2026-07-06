@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type LogoProps = {
   showDescriptor?: boolean;
@@ -7,8 +8,15 @@ type LogoProps = {
 export function Logo({ showDescriptor = true }: LogoProps) {
   return (
     <Link href="/" className="group flex items-center gap-2.5" aria-label="Big_Hub home">
-      <span className="flex h-[30px] w-[30px] items-center justify-center rounded-[7px] bg-gradient-to-br from-hub-goldLight to-hub-goldDim font-poppins text-[13px] font-extrabold text-[#1a1408] shadow-gold">
-        H8
+      <span className="relative block h-[30px] w-[30px] overflow-hidden">
+        <Image
+          src="/images/big-hub-logo.png"
+          alt=""
+          fill
+          sizes="30px"
+          className="object-contain transition duration-300 group-hover:scale-105"
+          priority
+        />
       </span>
       <span className="font-poppins text-xl font-extrabold text-hub-gold transition-colors group-hover:text-hub-goldLight">
         Big_Hub

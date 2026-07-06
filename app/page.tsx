@@ -42,7 +42,7 @@ export default function HomePage() {
             </StaggerGroup>
           </div>
 
-          <div className="relative order-first flex min-h-[360px] items-end justify-center overflow-visible md:order-none md:min-h-[560px]">
+          <div className="relative flex min-h-[360px] items-end justify-center overflow-visible md:min-h-[560px]">
             {/* Hero portrait lives at /public/images/amarachi-hero.png. Replace that file to update the image. */}
             <div className="animate-gold-breathe absolute bottom-6 left-1/2 h-[58%] w-[76%] -translate-x-1/2 rounded-full bg-hub-gold/10 blur-3xl" />
             <Image
