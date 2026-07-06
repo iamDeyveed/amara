@@ -78,11 +78,24 @@ export default function HomePage() {
                 key={tile.name}
                 className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[14px] bg-gradient-to-br ${tile.className} transition duration-200 hover:-translate-y-1`}
               >
-                {/* Replace preview placeholders with real project thumbnails in /public/images. */}
-                <span className="absolute inset-4 rounded-xl border border-white/15" />
+                {tile.image ? (
+                  <Image
+                    src={tile.image}
+                    alt={`${tile.name} project preview`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <>
+                    {/* Replace preview placeholders with real project thumbnails in /public/images. */}
+                    <span className="absolute inset-4 rounded-xl border border-white/15" />
+                  </>
+                )}
+                <span className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/65 to-transparent" />
                 <h3
                   className={`absolute bottom-4 left-4 font-poppins text-[15px] font-bold ${
-                    lightTile ? "text-[#1a1a1a]" : "text-white drop-shadow"
+                    lightTile && !tile.image ? "text-[#1a1a1a]" : "text-white drop-shadow"
                   }`}
                 >
                   {tile.name}

@@ -21,6 +21,7 @@ export type PreviewTile = {
   name: string;
   meta: string;
   className: string;
+  image?: string;
 };
 
 export type ProcessStep = {
@@ -62,9 +63,24 @@ export const socialLinks = [
 ];
 
 export const previewTiles: PreviewTile[] = [
-  { name: "Nexera", meta: "ERP System", className: "from-[#e8531d] to-[#8a2a0d]" },
-  { name: "Plenix", meta: "Fintech", className: "from-[#0f1030] to-[#1c1f4f]" },
-  { name: "Shop With Me", meta: "Ecommerce", className: "from-[#e8c419] to-[#b89210]" },
+  {
+    name: "Nexera",
+    meta: "ERP System",
+    className: "from-[#e8531d] to-[#8a2a0d]",
+    image: "/images/nexera-preview.png"
+  },
+  {
+    name: "Plenix",
+    meta: "Fintech",
+    className: "from-[#0f1030] to-[#1c1f4f]",
+    image: "/images/plenix-preview.png"
+  },
+  {
+    name: "Shop With Me",
+    meta: "Ecommerce",
+    className: "from-[#e8c419] to-[#b89210]",
+    image: "/images/shop-with-me-preview.png"
+  },
   { name: "AGRIXA", meta: "Agrotech", className: "from-[#5a7a3e] to-[#141a10]" },
   { name: "ABIZ Kitchen", meta: "Brand", className: "from-[#f0e9e0] to-[#d7cabd]" },
   { name: "Case Study Mockup", meta: "Presentation", className: "from-[#dcdcdc] to-[#8f8f8f]" }
