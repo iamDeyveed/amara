@@ -43,7 +43,11 @@ const bitcount = Bitcount_Single({
 export const metadata: Metadata = {
   title: "Big_Hub - Amarachi Mbanta | Product Designer",
   description:
-    "A black and gold portfolio for Amarachi Mbanta, a product designer crafting digital experiences across web, mobile, and brand systems."
+    "A black and gold portfolio for Amarachi Mbanta, a product designer crafting digital experiences across web, mobile, and brand systems.",
+  icons: {
+    icon: "/images/big-hub-logo.png",
+    apple: "/images/big-hub-logo.png"
+  }
 };
 
 export default function RootLayout({
