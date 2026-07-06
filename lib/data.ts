@@ -189,43 +189,48 @@ export const projects: Project[] = [
     sector: "ERP System",
     type: "Web Design",
     className: "from-[#e8531d] to-[#8a2a0d] text-white",
-    symbol: "Nx"
-    // Replace with a project screenshot later: image: "/images/nexera.jpg"
+    symbol: "Nx",
+    image: "/images/nexera-preview.png"
   },
   {
     title: "Plenix",
     sector: "Fintech",
     type: "Mobile App",
     className: "from-[#eef0f6] to-[#cdd3e5] text-[#141450]",
-    symbol: "Px"
+    symbol: "Px",
+    image: "/images/plenix-preview.png"
   },
   {
     title: "AGRIXA",
     sector: "Agrotech",
     type: "Website & Mobile App",
     className: "from-[#6a8a4e] to-[#1a2414] text-white",
-    symbol: "Ag"
+    symbol: "Ag",
+    image: "/images/agrixa-preview.png"
   },
   {
     title: "NavEase",
     sector: "Transport-tech",
     type: "Mobile App",
     className: "from-[#28374d] to-[#111923] text-[#dbe4f0]",
-    symbol: "Ne"
+    symbol: "Ne",
+    image: "/images/case-study-mockup-preview.png"
   },
   {
     title: "Shop with me",
     sector: "Ecommerce",
     type: "Mobile App",
     className: "from-[#eecb1c] to-[#b89210] text-[#3a2c00]",
-    symbol: "Sw"
+    symbol: "Sw",
+    image: "/images/shop-with-me-preview.png"
   },
   {
     title: "Abiz Kitchen",
     sector: "Brand Design",
     type: "Brand Design",
     className: "from-[#f0e9e0] to-[#d5c4b5] text-[#5c1e2b]",
-    symbol: "Ak"
+    symbol: "Ak",
+    image: "/images/abiz-kitchen-preview.png"
   }
 ];
 
